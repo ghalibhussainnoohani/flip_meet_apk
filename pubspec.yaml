@@ -1,0 +1,16 @@
+name: flipmeet
+description: FlipMeet - Video Chat App
+publish_to: 'none'
+version: 7.0.0+7
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.10.0
+  connectivity_plus: ^6.0.3
+
+flutter:
+  uses-material-design: true

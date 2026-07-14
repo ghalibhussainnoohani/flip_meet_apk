@@ -1,0 +1,58 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.flipmeet.app"
+    compileSdk 35
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    defaultConfig {
+        applicationId "com.flipmeet.app"
+        minSdk 21
+        targetSdk 35
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // Use debug signing for easy local builds.
+            // For production, configure a real keystore here:
+            //
+            // signingConfig signingConfigs.release
+            //
+            // signingConfigs {
+            //     release {
+            //         storeFile file('flipmeet.jks')
+            //         storePassword 'YOUR_STORE_PASSWORD'
+            //         keyAlias 'flipmeet'
+            //         keyPassword 'YOUR_KEY_PASSWORD'
+            //     }
+            // }
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
